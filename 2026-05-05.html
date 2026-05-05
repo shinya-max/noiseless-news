@@ -10,14 +10,14 @@
     --paper: #ffffff;
     --ink: #1a1a1a;
     --ink-2: #4a4a4a;
-    --ink-3: #7a7a7a;
-    --ink-4: #a8a094;
+    --ink-3: #555555;   /* 旧 #7a7a7a → 読みやすく */
+    --ink-4: #666655;   /* 旧 #a8a094 → 薄すぎを改善 */
     --line: #ebe5d8;
     --line-2: #f0ebde;
     --accent: #c96442;
     --accent-soft: #f4e3d8;
     --tone-fact: #2c2c2c;
-    --tone-context: #6a5a3e;
+    --tone-context: #5a4a2e;  /* 旧 #6a5a3e → やや濃く */
     --tone-guard: #c96442;
   }
   *{box-sizing:border-box}
@@ -31,10 +31,10 @@
 
   /* ---------- HEADER ---------- */
   header.masthead{padding:8px 0 36px;border-bottom:1px solid var(--line)}
-  .date{font-size:12px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase}
+  .date{font-size:13px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase}
   .greeting{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
     font-size:30px;font-weight:600;margin:14px 0 6px;letter-spacing:.02em}
-  .meta{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--ink-3);margin-top:10px}
+  .meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-3);margin-top:10px}
   .meta b{color:var(--ink-2);font-weight:600}
   .meta .dot{color:var(--line)}
 
@@ -51,17 +51,17 @@
   .intention input::placeholder{color:var(--ink-4)}
   .intention input:focus{border-bottom-color:var(--accent)}
   .intention .ftr{display:flex;justify-content:space-between;align-items:center;
-    margin-top:10px;font-size:12px;color:var(--ink-3)}
+    margin-top:10px;font-size:13px;color:var(--ink-3)}
   .intention .ftr a{color:var(--accent);text-decoration:none}
 
   /* ---------- SECTION ---------- */
   section.scope{margin-top:56px}
   section.scope > .head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
-  section.scope > .head .num{font-size:11px;letter-spacing:.22em;color:var(--ink-4);
+  section.scope > .head .num{font-size:12px;letter-spacing:.22em;color:var(--ink-4);
     font-variant-numeric:tabular-nums}
   section.scope > .head h2{margin:0;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
     font-size:22px;font-weight:600;letter-spacing:.04em}
-  section.scope > .head .sub{font-size:12px;color:var(--ink-3)}
+  section.scope > .head .sub{font-size:13px;color:var(--ink-3)}
   section.scope > .rule{height:1px;background:var(--line);margin:14px 0 24px}
 
   /* ---------- ARTICLE ---------- */
@@ -71,14 +71,14 @@
     font-size:19px;font-weight:600;line-height:1.5;letter-spacing:.02em;color:var(--ink)}
   article.story .row{display:grid;grid-template-columns:64px 1fr;gap:10px;margin:8px 0;
     padding:6px 0}
-  article.story .row .label{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  article.story .row .label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;
     font-weight:700;padding-top:5px}
   article.story .row.fact .label{color:var(--tone-fact)}
   article.story .row.context .label{color:var(--tone-context)}
   article.story .row.guard .label{color:var(--tone-guard)}
   article.story .row p{margin:0;font-size:15px;line-height:1.85;color:var(--ink-2)}
   article.story .row.guard p{color:var(--ink)}
-  article.story .crosslink{margin-top:10px;font-size:12px;color:var(--accent)}
+  article.story .crosslink{margin-top:10px;font-size:13px;color:var(--accent)}
   article.story .crosslink a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft);
     padding-bottom:1px}
   article.story .crosslink a:hover{border-bottom-color:var(--accent)}
@@ -86,16 +86,16 @@
   /* ---------- INDEX ---------- */
   .index{margin:36px 0 0;padding:22px 24px;background:var(--paper);
     border:1px solid var(--line);border-radius:14px}
-  .index h2{margin:0 0 16px;font-size:11px;letter-spacing:.22em;color:var(--ink-3);
+  .index h2{margin:0 0 16px;font-size:12px;letter-spacing:.22em;color:var(--ink-3);
     font-weight:700;text-transform:uppercase}
   .index .idx-section{margin-bottom:14px}
   .index .idx-section:last-child{margin-bottom:0}
-  .index .idx-label{font-size:10px;letter-spacing:.2em;color:var(--ink-4);
+  .index .idx-label{font-size:12px;letter-spacing:.2em;color:var(--ink-4);
     font-weight:700;text-transform:uppercase;margin-bottom:4px}
   .index .idx-item{display:flex;gap:10px;align-items:baseline;
     padding:4px 0;border-bottom:1px solid var(--line-2)}
   .index .idx-item:last-child{border-bottom:none}
-  .index .idx-num{font-size:10px;color:var(--ink-4);font-variant-numeric:tabular-nums;
+  .index .idx-num{font-size:12px;color:var(--ink-4);font-variant-numeric:tabular-nums;
     min-width:16px;flex-shrink:0}
   .index .idx-item a{font-size:13px;color:var(--ink-2);text-decoration:none;
     line-height:1.55;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
@@ -104,7 +104,7 @@
   /* ---------- NOISE PANEL ---------- */
   .noise{margin-top:72px;padding:28px 28px 24px;background:var(--paper);
     border:1px solid var(--line);border-radius:14px}
-  .noise h2{margin:0 0 4px;font-size:13px;letter-spacing:.16em;color:var(--ink-3);
+  .noise h2{margin:0 0 4px;font-size:14px;letter-spacing:.16em;color:var(--ink-3);
     font-weight:700;text-transform:uppercase}
   .noise .lead{margin:0 0 18px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
     font-size:18px;color:var(--ink)}
@@ -115,7 +115,7 @@
   .noise .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;
     padding-top:10px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
   .noise .total b{font-size:18px;color:var(--ink);font-variant-numeric:tabular-nums;font-weight:700}
-  .noise .why{margin-top:14px;font-size:12px;color:var(--ink-3);line-height:1.7}
+  .noise .why{margin-top:14px;font-size:13px;color:var(--ink-3);line-height:1.7}
 
   /* ---------- EVENING PROMPT ---------- */
   .evening{margin-top:36px;padding:28px;border:1px solid var(--accent-soft);
@@ -129,7 +129,7 @@
   .evening a:hover{background:var(--accent);color:#fff}
 
   /* ---------- BACK LINK ---------- */
-  .back{display:inline-block;margin-top:12px;font-size:11px;letter-spacing:.12em;
+  .back{display:inline-block;margin-top:12px;font-size:12px;letter-spacing:.12em;
     color:var(--ink-4);text-decoration:none;border-bottom:1px solid var(--line);
     padding-bottom:1px}
   .back:hover{color:var(--accent);border-bottom-color:var(--accent)}
@@ -137,15 +137,15 @@
   /* ---------- COMING SOON ---------- */
   .coming{margin-top:56px;padding:22px 24px;border:1px dashed var(--line);
     border-radius:14px}
-  .coming h2{margin:0 0 4px;font-size:10px;letter-spacing:.22em;color:var(--ink-4);
+  .coming h2{margin:0 0 4px;font-size:12px;letter-spacing:.22em;color:var(--ink-4);
     font-weight:700;text-transform:uppercase}
   .coming p{margin:6px 0 0;font-size:13px;color:var(--ink-3);line-height:1.75}
   .coming .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
   .coming .pill{font-size:11px;padding:4px 12px;border:1px solid var(--line);
-    border-radius:999px;color:var(--ink-3);letter-spacing:.04em}
+    border-radius:999px;color:var(--ink-3);letter-spacing:.04em;font-size:12px}
 
   /* ---------- SIGNATURE ---------- */
-  .sign{margin-top:56px;text-align:center;font-size:12px;color:var(--ink-4);
+  .sign{margin-top:56px;text-align:center;font-size:13px;color:var(--ink-4);
     letter-spacing:.18em;text-transform:uppercase}
   .sign .here{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:14px;
     text-transform:none;letter-spacing:0;color:var(--ink-3);margin-top:6px}
