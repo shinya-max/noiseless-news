@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>安心インフラ ビジョン</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      padding: 0 16px 40px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      padding: 28px 0 20px;
+    }
+    .header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .header p {
+      font-size: 13px;
+      color: #444;
+    }
+
+    /* ===== SECTION LABEL ===== */
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .section-label.accent { color: #c96442; }
+
+    /* ===== NOISE BOX ===== */
+    .noise-box {
+      background: #f6f4ef;
+      border: 1px solid #e8e4dc;
+      border-radius: 12px;
+      padding: 20px 14px;
+      line-height: 1;
+      min-height: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .noise-words {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      align-items: center;
+    }
+    .noise-words span {
+      font-size: 13px;
+      color: #555;
+      display: inline-block;
+    }
+    .noise-words span:nth-child(2n)   { transform: rotate(-3deg); color: #666; }
+    .noise-words span:nth-child(3n)   { transform: rotate(2deg);  color: #444; font-size: 14px; }
+    .noise-words span:nth-child(4n)   { transform: rotate(-2deg); color: #777; font-size: 12px; }
+    .noise-words span:nth-child(5n)   { transform: rotate(3deg);  }
+    .noise-words span:nth-child(6n)   { font-size: 12px; color: #666; }
+
+    /* ===== ARROW ===== */
+    .arrow-down {
+      text-align: center;
+      padding: 10px 0;
+      color: #777;
+      font-size: 20px;
+    }
+
+    /* ===== FILTER FUNNEL ===== */
+    .filter-wrap {
+      position: relative;
+    }
+    .funnel {
+      background: #faf9f5;
+      border: 1.5px solid #c96442;
+      border-radius: 12px 12px 40px 40px;
+      padding: 20px 24px 24px;
+      text-align: center;
+      clip-path: polygon(0% 0%, 100% 0%, 72% 100%, 28% 100%);
+      background: #faf9f5;
+    }
+    .funnel-inner {
+      border: 1.5px solid #c96442;
+      border-radius: 10px 10px 32px 32px;
+      padding: 18px 16px 22px;
+      text-align: center;
+      background: #faf9f5;
+      clip-path: polygon(0% 0%, 100% 0%, 74% 100%, 26% 100%);
+    }
+    /* シンプルな台形ボックスをCSSで */
+    .filter-box {
+      background: #faf9f5;
+      border: 1.5px solid #c96442;
+      border-radius: 12px;
+      padding: 18px 16px 22px;
+      text-align: center;
+      /* 台形はSVGで実装困難なのでborder-radiusで雰囲気を出す */
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+    .filter-box h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .filter-box p {
+      font-size: 12px;
+      color: #444;
+      margin-bottom: 4px;
+    }
+    .filter-box .note {
+      font-size: 12px;
+      color: #555;
+      margin-top: 6px;
+    }
+
+    /* ===== SIGNAL BOX ===== */
+    .signal-box {
+      background: #faf9f5;
+      border: 1.5px solid #c96442;
+      border-radius: 12px;
+      padding: 20px 20px 16px;
+      text-align: center;
+    }
+    .signal-box p {
+      font-size: 13px;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+    .signal-box .note {
+      font-size: 12px;
+      color: #555;
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      border: none;
+      border-top: 1px solid #e8e4dc;
+      margin: 24px 0 12px;
+    }
+
+    /* ===== 4 PILLARS GRID ===== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .pillar-card {
+      background: #faf9f5;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .pillar-card.mvp {
+      border: 2px solid #c96442;
+    }
+    .pillar-card.core {
+      border: 1.5px dashed #666;
+    }
+    .pillar-card-header {
+      padding: 6px 4px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+    .pillar-card.mvp .pillar-card-header  { background: #c96442; }
+    .pillar-card.core .pillar-card-header { background: #2c2c2c; }
+    .pillar-card-body {
+      padding: 12px 8px 14px;
+      text-align: center;
+      flex: 1;
+    }
+    .pillar-card-body .icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .pillar-card-body h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .pillar-card-body p {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 3px;
+      line-height: 1.5;
+    }
+    .pillar-card-body .sub {
+      font-size: 11px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    /* ===== EXPANSION PATH ===== */
+    .exp-path {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .exp-card {
+      background: #f6f4ef;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .exp-card.start {
+      background: #faf9f5;
+      border: 2px solid #c96442;
+    }
+    .exp-card .stage {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    .exp-card.start .stage { color: #c96442; }
+    .exp-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .exp-card p {
+      font-size: 11px;
+      color: #555;
+    }
+    .exp-arrow {
+      text-align: center;
+      padding: 6px 0;
+      color: #777;
+      font-size: 18px;
+    }
+
+    /* ===== PRINCIPLE ===== */
+    .principle {
+      padding-top: 8px;
+    }
+    .principle p {
+      font-size: 12px;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* spacing helpers */
+    .mt8  { margin-top: 8px; }
+    .mt16 { margin-top: 16px; }
+    .mt24 { margin-top: 24px; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>安心インフラ</h1>
+    <p>ノイズだらけの世界に、シグナルだけを届ける</p>
+  </div>
+
+  <!-- NOISE -->
+  <div class="section-label">NOISE</div>
+  <div class="noise-box">
+    <div class="noise-words">
+      <span>詐欺電話</span>
+      <span>煽り見出し</span>
+      <span>芸能スキャンダル</span>
+      <span>SNS通知</span>
+      <span>情報商材</span>
+      <span>過剰CM</span>
+      <span>高齢者狙い商法</span>
+      <span>価値観の揺らぎ</span>
+      <span>買い替え不安</span>
+    </div>
+  </div>
+
+  <!-- ARROW -->
+  <div class="arrow-down">↓</div>
+
+  <!-- FILTER -->
+  <div class="section-label accent">FILTER</div>
+  <div class="filter-box">
+    <h3>4つのサービス</h3>
+    <p>外側のノイズを削ぐ × 3</p>
+    <p>内側のシグナルを掘る × 1</p>
+    <p class="note">ACT が中核</p>
+  </div>
+
+  <!-- ARROW -->
+  <div class="arrow-down">↓</div>
+
+  <!-- SIGNAL -->
+  <div class="section-label">SIGNAL → 安心</div>
+  <div class="signal-box">
+    <p>今日大切にしたいこと</p>
+    <p>世界の本質と備え</p>
+    <p>必要な家電・必要な機能だけ</p>
+    <p>守られている、というベース</p>
+    <p>自分の価値観に立ち返る時間</p>
+    <p class="note">= 静けさ・余白・主体性</p>
+  </div>
+
+  <!-- 4 PILLARS -->
+  <hr class="divider mt24">
+  <div class="section-label">4 PILLARS</div>
+
+  <div class="pillars-grid">
+
+    <!-- Card 1: ノイズレス・ニュース -->
+    <div class="pillar-card mvp">
+      <div class="pillar-card-header">★ MVP / 今ここ</div>
+      <div class="pillar-card-body">
+        <span class="icon">📰</span>
+        <h3>ノイズレス<br>ニュース</h3>
+        <p>世界・日本・地域</p>
+        <p>事実 × 裏側 × 備え</p>
+        <p class="sub">煽り・スキャンダル排除</p>
+      </div>
+    </div>
+
+    <!-- Card 2: ACTジャーナリング -->
+    <div class="pillar-card core">
+      <div class="pillar-card-header">◆ CORE / 中核</div>
+      <div class="pillar-card-body">
+        <span class="icon">🧭</span>
+        <h3>ACT<br>ジャーナリング</h3>
+        <p>価値観の棚卸し</p>
+        <p>朝の意図 × 夜の振り返り</p>
+        <p class="sub">内的羅針盤</p>
+      </div>
+    </div>
+
+    <!-- Card 3: 投資・詐欺の盾 -->
+    <div class="pillar-card">
+      <div class="pillar-card-body">
+        <span class="icon">🛡️</span>
+        <h3>投資・詐欺の盾</h3>
+        <p>「これ、変かも?」</p>
+        <p>をいつでも相談</p>
+        <p>違和感が、最初の一歩</p>
+        <p class="sub">弁護士・FPへ繋ぐ</p>
+      </div>
+    </div>
+
+    <!-- Card 4: 暮らしのソムリエ -->
+    <div class="pillar-card">
+      <div class="pillar-card-body">
+        <span class="icon">🏠</span>
+        <h3>暮らしの<br>ソムリエ</h3>
+        <p>選ぶ・直す・管理する</p>
+        <p>AI → ギグワーカー</p>
+        <p>→ 修理屋 / 福祉</p>
+        <p class="sub">福祉の入り口にもなる</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EXPANSION PATH -->
+  <hr class="divider mt24">
+  <div class="section-label">EXPANSION PATH</div>
+  <p style="font-size:12px; color:#666; text-align:center; margin-bottom:12px;">誰の安心を獲りに行くか</p>
+
+  <div class="exp-path">
+    <div class="exp-card start">
+      <div class="stage">START / 今ここ</div>
+      <h3>自分と同じ感覚の人</h3>
+      <p>情報疲れ・主体性回復志向</p>
+    </div>
+    <div class="exp-arrow">↓</div>
+    <div class="exp-card">
+      <div class="stage">NEXT</div>
+      <h3>情報疲れ層 30〜50代</h3>
+      <p>SaaS的に直販</p>
+    </div>
+    <div class="exp-arrow">↓</div>
+    <div class="exp-card">
+      <div class="stage">EXPAND</div>
+      <h3>AI難民・親世代</h3>
+      <p>家族2世代UI</p>
+    </div>
+    <div class="exp-arrow">↓</div>
+    <div class="exp-card">
+      <div class="stage">VISION</div>
+      <h3>高齢者単身 × 福祉接続</h3>
+      <p>公的セクターと連携</p>
+    </div>
+  </div>
+
+  <!-- PRINCIPLE -->
+  <hr class="divider mt24">
+  <div class="section-label mt8">PRINCIPLE</div>
+  <div class="principle mt8">
+    <p>情報を増やす側ではなく、減らす側に立つ。<br>
+    外側のノイズを削ぎ、内側のシグナルを掘り起こす。<br>
+    これが「安心」の正体。4本柱を貫くコア。</p>
+  </div>
+
+</body>
+</html>
