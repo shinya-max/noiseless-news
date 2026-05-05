@@ -1,0 +1,149 @@
+<svg role="img" viewBox="0 0 390 1460" xmlns="http://www.w3.org/2000/svg"
+     font-family="-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif">
+  <title>安心インフラの全体ビジョン（モバイル版）</title>
+  <desc>ノイズだらけの世界からシグナルだけを届ける、4つのサービスで構成された「安心インフラ」のコンセプト図。縦スクロール対応版。</desc>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#999"/>
+    </marker>
+  </defs>
+
+  <rect width="390" height="1460" fill="#ffffff"/>
+
+  <!-- ===== HEADER ===== -->
+  <text x="195" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1a1a">安心インフラ</text>
+  <text x="195" y="66" text-anchor="middle" font-size="12" fill="#666">ノイズだらけの世界に、シグナルだけを届ける</text>
+
+  <!-- ===== MECHANISM: NOISE → FILTER → SIGNAL (縦積み) ===== -->
+
+  <!-- NOISE -->
+  <text x="195" y="94" text-anchor="middle" font-size="11" font-weight="600" fill="#888" letter-spacing="2">NOISE</text>
+  <rect x="20" y="104" width="350" height="128" rx="12" fill="#f6f4ef" stroke="#e8e4dc"/>
+  <text x="55"  y="132" font-size="12" fill="#777" transform="rotate(-4 55 132)">詐欺電話</text>
+  <text x="175" y="125" font-size="13" fill="#777" transform="rotate( 3 175 125)">煽り見出し</text>
+  <text x="285" y="130" font-size="11" fill="#999" transform="rotate(-2 285 130)">芸能スキャンダル</text>
+  <text x="36"  y="158" font-size="13" fill="#666" transform="rotate(-2 36 158)">SNS通知</text>
+  <text x="155" y="155" font-size="11" fill="#999" transform="rotate( 4 155 155)">情報商材</text>
+  <text x="268" y="162" font-size="12" fill="#777" transform="rotate(-3 268 162)">過剰CM</text>
+  <text x="48"  y="208" font-size="11" fill="#999" transform="rotate( 2 48 208)">高齢者狙い商法</text>
+  <text x="185" y="214" font-size="11" fill="#999" transform="rotate(-2 185 214)">価値観の揺らぎ</text>
+  <text x="292" y="208" font-size="11" fill="#777" transform="rotate( 2 292 208)">買い替え不安</text>
+
+  <!-- Arrow ↓ -->
+  <line x1="195" y1="232" x2="195" y2="258" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- FILTER funnel -->
+  <text x="195" y="277" text-anchor="middle" font-size="11" font-weight="600" fill="#c96442" letter-spacing="2">FILTER</text>
+  <path d="M 28,286 L 362,286 L 252,366 Q 195,380 138,366 Z" fill="#faf9f5" stroke="#c96442" stroke-width="1.5"/>
+  <text x="195" y="316" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">4つのサービス</text>
+  <text x="195" y="334" text-anchor="middle" font-size="10" fill="#666">外側のノイズを削ぐ × 3</text>
+  <text x="195" y="350" text-anchor="middle" font-size="10" fill="#666">内側のシグナルを掘る × 1</text>
+  <text x="195" y="376" text-anchor="middle" font-size="10" fill="#888">ACT が中核</text>
+
+  <!-- Arrow ↓ -->
+  <line x1="195" y1="392" x2="195" y2="418" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- SIGNAL -->
+  <text x="195" y="436" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a" letter-spacing="2">SIGNAL → 安心</text>
+  <rect x="20" y="446" width="350" height="158" rx="12" fill="#faf9f5" stroke="#c96442"/>
+  <text x="195" y="474" text-anchor="middle" font-size="12" fill="#1a1a1a">今日大切にしたいこと</text>
+  <text x="195" y="496" text-anchor="middle" font-size="12" fill="#1a1a1a">世界の本質と備え</text>
+  <text x="195" y="518" text-anchor="middle" font-size="12" fill="#1a1a1a">必要な家電・必要な機能だけ</text>
+  <text x="195" y="540" text-anchor="middle" font-size="12" fill="#1a1a1a">守られている、というベース</text>
+  <text x="195" y="562" text-anchor="middle" font-size="12" fill="#1a1a1a">自分の価値観に立ち返る時間</text>
+  <text x="195" y="586" text-anchor="middle" font-size="10" fill="#888">= 静けさ・余白・主体性</text>
+
+  <!-- ===== 4 PILLARS (2×2グリッド) ===== -->
+  <text x="20" y="632" font-size="11" font-weight="600" fill="#888" letter-spacing="2">4 PILLARS</text>
+  <line x1="20" y1="640" x2="370" y2="640" stroke="#e8e4dc"/>
+
+  <!-- Card 1: ノイズレス・ニュース (MVP) 左上 -->
+  <g transform="translate(15, 652)">
+    <rect width="170" height="158" rx="12" fill="#faf9f5" stroke="#c96442" stroke-width="2"/>
+    <rect x="0" y="0" width="170" height="22" rx="12" fill="#c96442"/>
+    <rect x="0" y="11" width="170" height="11" fill="#c96442"/>
+    <text x="85" y="16" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff" letter-spacing="0.5">★ MVP / 今ここ</text>
+    <text x="85" y="47" text-anchor="middle" font-size="20">📰</text>
+    <text x="85" y="73" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">ノイズレス</text>
+    <text x="85" y="89" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">ニュース</text>
+    <text x="85" y="110" text-anchor="middle" font-size="10" fill="#666">世界・日本・地域</text>
+    <text x="85" y="126" text-anchor="middle" font-size="10" fill="#666">事実 × 裏側 × 備え</text>
+    <text x="85" y="146" text-anchor="middle" font-size="9" fill="#888">煽り・スキャンダル排除</text>
+  </g>
+
+  <!-- Card 2: ACTジャーナリング (CORE) 右上 -->
+  <g transform="translate(205, 652)">
+    <rect width="170" height="158" rx="12" fill="#f6f4ef" stroke="#888" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="0" y="0" width="170" height="22" rx="12" fill="#2c2c2c"/>
+    <rect x="0" y="11" width="170" height="11" fill="#2c2c2c"/>
+    <text x="85" y="16" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff" letter-spacing="0.5">◆ CORE / 中核</text>
+    <text x="85" y="47" text-anchor="middle" font-size="20">🧭</text>
+    <text x="85" y="73" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">ACT</text>
+    <text x="85" y="89" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">ジャーナリング</text>
+    <text x="85" y="110" text-anchor="middle" font-size="10" fill="#666">価値観の棚卸し</text>
+    <text x="85" y="126" text-anchor="middle" font-size="10" fill="#666">朝の意図 × 夜の振り返り</text>
+    <text x="85" y="146" text-anchor="middle" font-size="9" fill="#888">内的羅針盤</text>
+  </g>
+
+  <!-- Card 3: 投資・詐欺の盾 左下 -->
+  <g transform="translate(15, 824)">
+    <rect width="170" height="158" rx="12" fill="#faf9f5" stroke="#e8e4dc" stroke-width="1"/>
+    <text x="85" y="44" text-anchor="middle" font-size="20">🛡️</text>
+    <text x="85" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">投資・詐欺の盾</text>
+    <text x="85" y="96" text-anchor="middle" font-size="10" fill="#666">「これ、変かも?」</text>
+    <text x="85" y="112" text-anchor="middle" font-size="10" fill="#666">をいつでも相談</text>
+    <text x="85" y="128" text-anchor="middle" font-size="10" fill="#666">違和感が、最初の一歩</text>
+    <text x="85" y="147" text-anchor="middle" font-size="9" fill="#888">弁護士・FPへ繋ぐ</text>
+  </g>
+
+  <!-- Card 4: 暮らしのソムリエ 右下 -->
+  <g transform="translate(205, 824)">
+    <rect width="170" height="158" rx="12" fill="#faf9f5" stroke="#e8e4dc" stroke-width="1"/>
+    <text x="85" y="44" text-anchor="middle" font-size="20">🏠</text>
+    <text x="85" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">暮らしのソムリエ</text>
+    <text x="85" y="96" text-anchor="middle" font-size="10" fill="#666">選ぶ・直す・管理する</text>
+    <text x="85" y="112" text-anchor="middle" font-size="10" fill="#666">AI → ギグワーカー</text>
+    <text x="85" y="128" text-anchor="middle" font-size="10" fill="#666">→ 修理屋 / 福祉</text>
+    <text x="85" y="147" text-anchor="middle" font-size="9" fill="#888">福祉の入り口にもなる</text>
+  </g>
+
+  <!-- ===== EXPANSION PATH (縦積み) ===== -->
+  <text x="20" y="1010" font-size="11" font-weight="600" fill="#888" letter-spacing="2">EXPANSION PATH</text>
+  <text x="20" y="1026" font-size="10" fill="#aaa">誰の安心を獲りに行くか</text>
+  <line x1="20" y1="1034" x2="370" y2="1034" stroke="#e8e4dc"/>
+
+  <!-- START -->
+  <rect x="25" y="1044" width="340" height="64" rx="10" fill="#faf9f5" stroke="#c96442" stroke-width="2"/>
+  <text x="195" y="1063" text-anchor="middle" font-size="10" font-weight="700" fill="#c96442" letter-spacing="1">START / 今ここ</text>
+  <text x="195" y="1083" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">自分と同じ感覚の人</text>
+  <text x="195" y="1099" text-anchor="middle" font-size="10" fill="#888">情報疲れ・主体性回復志向</text>
+  <line x1="195" y1="1108" x2="195" y2="1122" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- NEXT -->
+  <rect x="25" y="1126" width="340" height="64" rx="10" fill="#f6f4ef" stroke="#e8e4dc"/>
+  <text x="195" y="1145" text-anchor="middle" font-size="10" font-weight="600" fill="#888" letter-spacing="1">NEXT</text>
+  <text x="195" y="1165" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">情報疲れ層 30〜50代</text>
+  <text x="195" y="1181" text-anchor="middle" font-size="10" fill="#888">SaaS的に直販</text>
+  <line x1="195" y1="1190" x2="195" y2="1204" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- EXPAND -->
+  <rect x="25" y="1208" width="340" height="64" rx="10" fill="#f6f4ef" stroke="#e8e4dc"/>
+  <text x="195" y="1227" text-anchor="middle" font-size="10" font-weight="600" fill="#888" letter-spacing="1">EXPAND</text>
+  <text x="195" y="1247" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">AI難民・親世代</text>
+  <text x="195" y="1263" text-anchor="middle" font-size="10" fill="#888">家族2世代UI</text>
+  <line x1="195" y1="1272" x2="195" y2="1286" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- VISION -->
+  <rect x="25" y="1290" width="340" height="64" rx="10" fill="#f6f4ef" stroke="#e8e4dc"/>
+  <text x="195" y="1309" text-anchor="middle" font-size="10" font-weight="600" fill="#888" letter-spacing="1">VISION</text>
+  <text x="195" y="1329" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">高齢者単身 × 福祉接続</text>
+  <text x="195" y="1345" text-anchor="middle" font-size="10" fill="#888">公的セクターと連携</text>
+
+  <!-- ===== PRINCIPLE ===== -->
+  <line x1="20" y1="1378" x2="370" y2="1378" stroke="#e8e4dc"/>
+  <text x="20" y="1398" font-size="11" font-weight="600" fill="#888" letter-spacing="2">PRINCIPLE</text>
+  <text x="20" y="1416" font-size="11" fill="#555">情報を増やす側ではなく、減らす側に立つ。</text>
+  <text x="20" y="1432" font-size="11" fill="#555">外側のノイズを削ぎ、内側のシグナルを掘り起こす。</text>
+  <text x="20" y="1450" font-size="11" fill="#555">これが「安心」の正体。4本柱を貫くコア。</text>
+</svg>
