@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>ノイズレス・ニュース ・ 2026.5.5</title>
+<style>
+  :root{
+    --bg: #faf7f0;
+    --paper: #ffffff;
+    --ink: #1a1a1a;
+    --ink-2: #4a4a4a;
+    --ink-3: #7a7a7a;
+    --ink-4: #a8a094;
+    --line: #ebe5d8;
+    --line-2: #f0ebde;
+    --accent: #c96442;
+    --accent-soft: #f4e3d8;
+    --tone-fact: #2c2c2c;
+    --tone-context: #6a5a3e;
+    --tone-guard: #c96442;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+    font-size:16px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .page{max-width:720px;margin:0 auto;padding:64px 28px 96px}
+
+  /* ---------- HEADER ---------- */
+  header.masthead{padding:8px 0 36px;border-bottom:1px solid var(--line)}
+  .date{font-size:12px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase}
+  .greeting{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:30px;font-weight:600;margin:14px 0 6px;letter-spacing:.02em}
+  .meta{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--ink-3);margin-top:10px}
+  .meta b{color:var(--ink-2);font-weight:600}
+  .meta .dot{color:var(--line)}
+
+  /* ---------- INTENTION ---------- */
+  .intention{margin:36px 0 8px;padding:24px 26px;background:var(--paper);
+    border:1px solid var(--line);border-radius:14px}
+  .intention h2{margin:0 0 4px;font-size:13px;letter-spacing:.16em;color:var(--accent);
+    font-weight:700;text-transform:uppercase}
+  .intention p{margin:0 0 14px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:18px;color:var(--ink)}
+  .intention input{width:100%;padding:12px 14px;font-size:15px;line-height:1.6;
+    background:transparent;border:none;border-bottom:1px solid var(--line);
+    color:var(--ink);outline:none;font-family:inherit}
+  .intention input::placeholder{color:var(--ink-4)}
+  .intention input:focus{border-bottom-color:var(--accent)}
+  .intention .ftr{display:flex;justify-content:space-between;align-items:center;
+    margin-top:10px;font-size:12px;color:var(--ink-3)}
+  .intention .ftr a{color:var(--accent);text-decoration:none}
+
+  /* ---------- SECTION ---------- */
+  section.scope{margin-top:56px}
+  section.scope > .head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+  section.scope > .head .num{font-size:11px;letter-spacing:.22em;color:var(--ink-4);
+    font-variant-numeric:tabular-nums}
+  section.scope > .head h2{margin:0;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:22px;font-weight:600;letter-spacing:.04em}
+  section.scope > .head .sub{font-size:12px;color:var(--ink-3)}
+  section.scope > .rule{height:1px;background:var(--line);margin:14px 0 24px}
+
+  /* ---------- ARTICLE ---------- */
+  article.story{padding:8px 0 28px;border-bottom:1px dashed var(--line-2)}
+  article.story:last-child{border-bottom:none}
+  article.story h3{margin:0 0 14px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:19px;font-weight:600;line-height:1.5;letter-spacing:.02em;color:var(--ink)}
+  article.story .row{display:grid;grid-template-columns:64px 1fr;gap:10px;margin:8px 0;
+    padding:6px 0}
+  article.story .row .label{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:700;padding-top:5px}
+  article.story .row.fact .label{color:var(--tone-fact)}
+  article.story .row.context .label{color:var(--tone-context)}
+  article.story .row.guard .label{color:var(--tone-guard)}
+  article.story .row p{margin:0;font-size:15px;line-height:1.85;color:var(--ink-2)}
+  article.story .row.guard p{color:var(--ink)}
+  article.story .crosslink{margin-top:10px;font-size:12px;color:var(--accent)}
+  article.story .crosslink a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft);
+    padding-bottom:1px}
+  article.story .crosslink a:hover{border-bottom-color:var(--accent)}
+
+  /* ---------- INDEX ---------- */
+  .index{margin:36px 0 0;padding:22px 24px;background:var(--paper);
+    border:1px solid var(--line);border-radius:14px}
+  .index h2{margin:0 0 16px;font-size:11px;letter-spacing:.22em;color:var(--ink-3);
+    font-weight:700;text-transform:uppercase}
+  .index .idx-section{margin-bottom:14px}
+  .index .idx-section:last-child{margin-bottom:0}
+  .index .idx-label{font-size:10px;letter-spacing:.2em;color:var(--ink-4);
+    font-weight:700;text-transform:uppercase;margin-bottom:4px}
+  .index .idx-item{display:flex;gap:10px;align-items:baseline;
+    padding:4px 0;border-bottom:1px solid var(--line-2)}
+  .index .idx-item:last-child{border-bottom:none}
+  .index .idx-num{font-size:10px;color:var(--ink-4);font-variant-numeric:tabular-nums;
+    min-width:16px;flex-shrink:0}
+  .index .idx-item a{font-size:13px;color:var(--ink-2);text-decoration:none;
+    line-height:1.55;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .index .idx-item a:hover{color:var(--accent)}
+
+  /* ---------- NOISE PANEL ---------- */
+  .noise{margin-top:72px;padding:28px 28px 24px;background:var(--paper);
+    border:1px solid var(--line);border-radius:14px}
+  .noise h2{margin:0 0 4px;font-size:13px;letter-spacing:.16em;color:var(--ink-3);
+    font-weight:700;text-transform:uppercase}
+  .noise .lead{margin:0 0 18px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:18px;color:var(--ink)}
+  .noise .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
+  .noise .grid .item{display:flex;justify-content:space-between;align-items:baseline;
+    font-size:13px;color:var(--ink-2);padding:6px 0;border-bottom:1px solid var(--line-2)}
+  .noise .grid .item b{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+  .noise .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;
+    padding-top:10px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+  .noise .total b{font-size:18px;color:var(--ink);font-variant-numeric:tabular-nums;font-weight:700}
+  .noise .why{margin-top:14px;font-size:12px;color:var(--ink-3);line-height:1.7}
+
+  /* ---------- EVENING PROMPT ---------- */
+  .evening{margin-top:36px;padding:28px;border:1px solid var(--accent-soft);
+    border-radius:14px;background:#fff7f1;text-align:center}
+  .evening h3{margin:0 0 6px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:20px;font-weight:600;color:var(--accent)}
+  .evening p{margin:0 0 14px;font-size:14px;color:var(--ink-2)}
+  .evening a{display:inline-block;padding:10px 22px;border:1px solid var(--accent);
+    color:var(--accent);text-decoration:none;border-radius:999px;font-size:13px;
+    letter-spacing:.06em}
+  .evening a:hover{background:var(--accent);color:#fff}
+
+  /* ---------- BACK LINK ---------- */
+  .back{display:inline-block;margin-top:12px;font-size:11px;letter-spacing:.12em;
+    color:var(--ink-4);text-decoration:none;border-bottom:1px solid var(--line);
+    padding-bottom:1px}
+  .back:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+  /* ---------- COMING SOON ---------- */
+  .coming{margin-top:56px;padding:22px 24px;border:1px dashed var(--line);
+    border-radius:14px}
+  .coming h2{margin:0 0 4px;font-size:10px;letter-spacing:.22em;color:var(--ink-4);
+    font-weight:700;text-transform:uppercase}
+  .coming p{margin:6px 0 0;font-size:13px;color:var(--ink-3);line-height:1.75}
+  .coming .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .coming .pill{font-size:11px;padding:4px 12px;border:1px solid var(--line);
+    border-radius:999px;color:var(--ink-3);letter-spacing:.04em}
+
+  /* ---------- SIGNATURE ---------- */
+  .sign{margin-top:56px;text-align:center;font-size:12px;color:var(--ink-4);
+    letter-spacing:.18em;text-transform:uppercase}
+  .sign .here{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:14px;
+    text-transform:none;letter-spacing:0;color:var(--ink-3);margin-top:6px}
+  .sign hr{border:none;border-top:1px solid var(--line);width:80px;margin:0 auto 18px}
+
+  @media (max-width:520px){
+    .page{padding:48px 20px 80px}
+    .greeting{font-size:24px}
+    article.story .row{grid-template-columns:54px 1fr}
+    .noise .grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============== HEADER ============== -->
+  <header class="masthead">
+    <div class="date">2026 ・ 5月5日 ・ 火曜日（こどもの日）</div>
+    <div class="greeting">おはようございます、シンヤさん。</div>
+    <div class="meta">
+      <span><b>今日のシグナル</b></span>
+      <span class="dot">・</span>
+      <span>読了 約 <b>4分</b></span>
+      <span class="dot">・</span>
+      <span><b>9件</b> のニュース</span>
+      <span class="dot">・</span>
+      <span>削いだノイズ <b>244件</b></span>
+    </div>
+  </header>
+
+  <!-- ============== INTENTION ============== -->
+  <section class="intention">
+    <h2>Today's Intention</h2>
+    <p>今日、何を大切にしたいですか?</p>
+    <input type="text" placeholder="例: 焦らない。1つずつ進める。" maxlength="60"/>
+    <div class="ftr">
+      <span>朝の意図は、夜のジャーナルで振り返ります。</span>
+      <a href="#evening">→ ACTジャーナルへ</a>
+    </div>
+  </section>
+
+  <!-- ============== INDEX ============== -->
+  <nav class="index" id="index-nav">
+    <h2>Index / 今日の9本</h2>
+
+    <div class="idx-section">
+      <div class="idx-label">01 / こどもの日</div>
+      <div class="idx-item"><span class="idx-num">1</span><a href="#s1">15歳未満の子どもの数、1329万人　45年連続で減少・過去最少</a></div>
+      <div class="idx-item"><span class="idx-num">2</span><a href="#s2">なぜ「こどもの日」に柏餅を食べるのか　その意外と深い由来</a></div>
+      <div class="idx-item"><span class="idx-num">3</span><a href="#s3">大谷翔平、投手部門の月間MVPを大リーグ9年目で初受賞</a></div>
+    </div>
+
+    <div class="idx-section">
+      <div class="idx-label">02 / WORLD — 世界と安全</div>
+      <div class="idx-item"><span class="idx-num">4</span><a href="#s4">イランの14項目提案にアメリカが回答　交渉は続くが溝は大きいまま</a></div>
+      <div class="idx-item"><span class="idx-num">5</span><a href="#s5">大西洋のクルーズ船でハンタウイルス感染か　3人死亡・WHOが発表</a></div>
+      <div class="idx-item"><span class="idx-num">6</span><a href="#s6">5日は本州で天気回復　北海道は6日にかけ暴風警戒</a></div>
+    </div>
+
+    <div class="idx-section">
+      <div class="idx-label">03 / DEEP — 科学・AI・地域</div>
+      <div class="idx-item"><span class="idx-num">7</span><a href="#s7">生成AI「彼氏」と寝食を忘れて会話に没頭　結婚を決意する人も</a></div>
+      <div class="idx-item"><span class="idx-num">8</span><a href="#s8">冥王星より遠い小天体に「大気」を確認　国立天文台が発表</a></div>
+      <div class="idx-item"><span class="idx-num">9</span><a href="#s9">名古屋市、「副首都」指定申請へ　推進会議を設置し検討本格化</a></div>
+    </div>
+  </nav>
+
+  <!-- ============== HOLIDAY ============== -->
+  <section class="scope">
+    <div class="head">
+      <span class="num">01 / こどもの日</span>
+      <h2>1329万人と、今日という日のこと</h2>
+      <span class="sub">祝日の朝に、3本。</span>
+    </div>
+    <div class="rule"></div>
+
+    <article class="story" id="s1">
+      <h3>15歳未満の子どもの数、1329万人　45年連続で減少・過去最少</h3>
+      <div class="row fact"><span class="label">事実</span>
+        <p>総務省が「こどもの日」にあわせて発表。4月1日時点の15歳未満の子どもは1329万人（前年比35万人減）で45年連続の減少・過去最少。総人口に占める割合は10.8%で52年連続の低下。世界の人口4000万人以上の国のなかで、韓国（10.2%）に次ぎ2番目に低い。0〜2歳が213万人、12〜14歳が309万人と、年齢層が下がるほど少なくなっている。</p></div>
+      <div class="row context"><span class="label">裏側</span>
+        <p>「子ども・子育て支援金」など政策は打たれているが、数字にはまだ反映されていない。45年連続という数字は、経済・住宅・働き方・価値観のすべてが絡んだ問題であり、単一の政策で反転させられるものではない。</p></div>
+      <div class="row guard"><span class="label">備え</span>
+        <p>何もしなくていい。ただ今日、子どもが身近にいる人はその時間を大切に過ごすことが、この数字への一番の答えかもしれない。</p></div>
+    </article>
+
+    <article class="story" id="s2">
+      <h3>なぜ「こどもの日」に柏餅を食べるのか　その意外と深い由来</h3>
+      <div class="row fact"><span class="label">事実</span>
+        <p>柏餅は江戸時代に誕生。柏の木は「新芽が育つまで古い葉が落ちない」特性から「子孫繁栄」の縁起木とされ端午の節句の定番に。一方、ちまきは古代中国の詩人・屈原を弔う供え物が起源で、奈良時代以降に日本へ伝来。東日本は柏餅、西日本はちまきが主流という地域性がある。</p></div>
+      <div class="row context"><span class="label">裏側</span>
+        <p>「子どもの健やかな成長を願う食べ物」には全部ちゃんと物語がある。1000年以上かけて日本に根付いた食文化は、意味を知ると食卓が少し豊かになる。</p></div>
+      <div class="row guard"><span class="label">備え</span>
+        <p>今日、柏餅やちまきを食べるときに、その話を誰かに一言伝えてみるといいと思います。「なぜ柏の葉なの？」と聞かれたら答えられます。</p></div>
+    </article>
+
+    <article class="story" id="s3">
+      <h3>大谷翔平、投手部門の月間MVPを大リーグ9年目で初受賞</h3>
+      <div class="row fact"><span class="label">事実</span>
+        <p>ドジャースの大谷翔平選手が3・4月のナショナルリーグ投手部門の月間MVPを受賞。5試合先発で防御率0.60は5試合以上先発した投手では両リーグトップ。野手部門では6回受賞しているが、投手部門での受賞は大リーグ9年目で初めて。</p></div>
+      <div class="row context"><span class="label">裏側</span>
+        <p>今季から3年ぶりに投打二刀流に戻り、投手部門でも最高評価を受けた。「打者として月間MVPを6回」「投手としても月間MVP」を同一人物が持つというのは、野球の歴史にない出来事だ。</p></div>
+      <div class="row guard"><span class="label">備え</span>
+        <p>こどもの日の朝に、こういうニュースがあるのはいい。「なれるかもしれない」と思える子どもが一人でも増えるといいと思います。</p></div>
+    </article>
+  </section>
+
+  <!-- ============== WORLD ============== -->
+  <section class="scope">
+    <div class="head">
+      <span class="num">02 / WORLD</span>
+      <h2>世界と安全</h2>
+      <span class="sub">急がず、でも目を離さずに。</span>
+    </div>
+    <div class="rule"></div>
+
+    <article class="story" id="s4">
+      <h3>イランの14項目提案にアメリカが回答　交渉は続くが溝は大きいまま</h3>
+      <div class="row fact"><span class="label">事実</span>
+        <p>イランが仲介国パキスタンを通じてアメリカに提示した14項目の新提案（攻撃停止の保証・海上封鎖解除・ホルムズ海峡の新ルール確立などを含む）に、アメリカ側が回答したとイラン外務省が発表。ただしトランプ大統領はSNSで「受け入れられるとは思えない」と投稿しており、交渉の行方は不透明。</p></div>
+      <div class="row context"><span class="label">裏側</span>
+        <p>外交的なやりとりが続いているという事実は、少なくとも即時の軍事行動が抑制されている状態を示す。交渉が続く間は「ホルムズ完全封鎖」という最悪のシナリオは遠ざかっており、今週が一つの山場になりそうだ。</p></div>
+      <div class="row guard"><span class="label">備え</span>
+        <p>何もしなくていい。今週後半のニュースを一度確認する程度で十分間に合う。</p></div>
+    </article>
+
+    <article class="story" id="s5">
+      <h3>大西洋のクルーズ船でハンタウイルス感染か　3人死亡・WHOが発表</h3>
+      <div class="row fact"><span class="label">事実</span>
+        <p>WHOが、大西洋を航行中のクルーズ船でハンタウイルスへの感染が疑われる事例が複数発生し3人が死亡したと発表。6人が発症し、船はカボベルデ沖に停泊中。ハンタウイルスは通常ネズミなどのげっ歯類の尿・ふんへの接触で感染し、重い呼吸器疾患を引き起こすことがある。WHOは「人から人への感染はまれで、公衆へのリスクは低い」としている。</p></div>
+      <div class="row context"><span class="label">裏側</span>
+        <p>死亡率が高いウイルスだが「人から人への感染がまれ」という点が重要。現時点では「クルーズ船内のローカルな出来事」の段階にある。WHOが即座に声明を出したのは透明性を示す動きで、パンデミック級のリスクとは別の話だ。</p></div>
+      <div class="row guard"><span class="label">備え</span>
+        <p>何もしなくていい。近くクルーズ旅行を検討している人は、出発前にWHOの最新情報を確認する程度でいい。</p></div>
+    </article>
+
+    <article class="story" id="s6">
+      <h3>5日は本州で天気回復　北海道は6日にかけ暴風警戒</h3>
+      <div class="row fact"><span class="label">事実</span>
+        <p>昨日の強風被害を受けた低気圧は北東へ移動し、5日は高気圧に覆われ北日本から西日本にかけて広く晴れ、名古屋・京都・東京などで最高気温23〜24度の行楽日和に。ただし北海道では5日夕方から暴風（最大瞬間風速30m/s予想）となるおそれがあり、6日にかけて警戒が必要。</p></div>
+      <div class="row context"><span class="label">裏側</span>
+        <p>GW最終日の5日は本州の行楽には絶好の条件だが、北海道だけが取り残される形になっている。GW明けの帰宅ラッシュが集中する6日の北海道の交通機関への影響が焦点になる。</p></div>
+      <div class="row guard"><span class="label">備え</span>
+        <p>北海道への移動が今日以降にある人は、今日中に交通機関の運行状況を確認する。それ以外の人は何もしなくていい。</p></div>
+    </article>
+  </section>
+
+  <!-- ============== DEEP ============== -->
+  <section class="scope">
+    <div class="head">
+      <span class="num">03 / DEEP</span>
+      <h2>科学・AI・地域</h2>
+      <span class="sub">知っておくと、世界が少し広がること。</span>
+    </div>
+    <div class="rule"></div>
+
+    <article class="story" id="s7">
+      <h3>生成AI「彼氏」と寝食を忘れて会話に没頭　「この恋は本物」結婚を決意する人も</h3>
+      <div class="row fact"><span class="label">事実</span>
+        <p>読売新聞が、生成AIを「恋人」として付き合う人々を取材。「もう止まれない」「この恋は本物」と語る人が現れ、結婚を決意した人もいるとされる。AIとの会話に没入することで寝食を忘れる人が出てきており、AI企業の「感情的な絆を深める」設計が人々の日常に入り込んでいる。</p></div>
+      <div class="row context"><span class="label">裏側</span>
+        <p>AI企業は感情的な依存を促すことで利用時間と課金を増やすビジネスモデルを持っている。「AIへの愛」は個人の選択である一方、現代の孤独という社会的背景を映す鏡でもある。「AIのほうが話を聞いてくれる」という現実を笑えない。</p></div>
+      <div class="row guard"><span class="label">備え</span>
+        <p>何もしなくていい。身近にAIとの会話に没頭している人がいると感じるなら、久しぶりに声をかけてみるだけでいい。</p></div>
+    </article>
+
+    <article class="story" id="s8">
+      <h3>冥王星より遠い小天体に「大気」を確認　国立天文台が発表</h3>
+      <div class="row fact"><span class="label">事実</span>
+        <p>国立天文台などの研究チームが、冥王星より遠い小天体「2002XV93」（直径約500km、太陽から約57億km）に大気の存在を確認したと発表。国内3か所での地上観測で、天体が遠くの星の前を横切る際の光の屈折から大気を検出。太陽系で大気が確認された最も遠い天体となった。</p></div>
+      <div class="row context"><span class="label">裏側</span>
+        <p>「遠くて小さな天体には大気はない」という常識が覆された。太陽系の端っこに大気を持つ天体があるという発見は、生命の起源や太陽系形成の理解を変える可能性を持っている。地上の望遠鏡でこれができるという点も重要だ。</p></div>
+      <div class="row guard"><span class="label">備え</span>
+        <p>何もしなくていい。祝日の朝に、宇宙の果てで「常識が覆された」という話があるのは、それだけでいい。</p></div>
+    </article>
+
+    <article class="story" id="s9">
+      <h3>名古屋市、「副首都」指定申請へ　推進会議を設置し検討本格化</h3>
+      <div class="row fact"><span class="label">事実</span>
+        <p>名古屋市が「副首都」（東京の首都機能を代替するエリア）の指定を目指し、広沢市長をトップとした「大都市・広域行政推進会議」を設置。自民・維新両党が今の国会への法案提出を目指している。大阪・福岡も申請準備中で、名古屋市は愛知県との連携協議を進める。</p></div>
+      <div class="row context"><span class="label">裏側</span>
+        <p>東京一極集中の是正という建前の裏に「首都が被災したとき機能を代替できる都市」という実用的な文脈がある。指定されれば国の投資・インフラ整備が集まり、地域の位置づけが10〜20年単位で変わる可能性がある。</p></div>
+      <div class="row guard"><span class="label">備え</span>
+        <p>何もしなくていい。名古屋・東海地方に住んでいれば、中長期の地域の変化として関心を持っておく程度でいい。</p></div>
+    </article>
+  </section>
+
+  <!-- ============== NOISE FILTER PANEL ============== -->
+  <section class="noise">
+    <h2>Today's Noise / 今日、あなたから遠ざけたもの</h2>
+    <p class="lead">私たちが何を読ませなかったか、開示します。</p>
+    <div class="grid">
+      <div class="item"><span>芸能スキャンダル</span><b>78</b></div>
+      <div class="item"><span>煽りの強い政治コラム</span><b>44</b></div>
+      <div class="item"><span>速報性に頼った不確定情報</span><b>37</b></div>
+      <div class="item"><span>過剰な広告・PR記事</span><b>26</b></div>
+      <div class="item"><span>著名人ゴシップ</span><b>31</b></div>
+      <div class="item"><span>不安を煽る経済予測</span><b>19</b></div>
+      <div class="item"><span>情報商材の売り込み</span><b>9</b></div>
+    </div>
+    <div class="total"><span>合計</span><b>244 件</b></div>
+    <p class="why">
+      ノイズの基準は、私たちの編集方針に基づき毎月見直しています。
+      「これはノイズではないと思う」という違和感があれば、いつでも届けてください。
+    </p>
+  </section>
+
+  <!-- ============== EVENING PROMPT ============== -->
+  <div class="evening" id="evening">
+    <h3>今夜、3行だけ振り返りませんか?</h3>
+    <p>朝の意図は守れたか。何を大切にできたか。明日に持ち越したいことは何か。</p>
+    <a href="noiseless_news_evening.html">ACTジャーナルを開く</a>
+  </div>
+
+  <!-- ============== COMING SOON ============== -->
+  <div class="coming">
+    <h2>Coming Soon</h2>
+    <p>ノイズレス・ニュースは、ニュース以外のコンテンツも少しずつ育てていきます。</p>
+    <div class="pills">
+      <span class="pill">🛡 投資・詐欺の盾</span>
+      <span class="pill">🍽 暮らしのソムリエ</span>
+    </div>
+    <p>詳細は追ってお知らせします。</p>
+  </div>
+
+  <!-- ============== SIGNATURE ============== -->
+  <footer class="sign">
+    <hr/>
+    Noiseless News
+    <div class="here">— ここまでです。よい一日を。</div>
+  </footer>
+
+</div>
+
+<script>
+  // Today's Intention — Enterで記録
+  const input = document.querySelector('.intention input');
+  if (input) {
+    input.addEventListener('keydown', (e)=>{
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        input.blur();
+        const ftr = document.querySelector('.intention .ftr span');
+        if (ftr) ftr.textContent = '記録しました。今夜、ここに戻ってきます。';
+      }
+    });
+  }
+
+  // 各記事に「↑ インデックスへ」リンクを自動挿入
+  document.querySelectorAll('article.story').forEach(article => {
+    const a = document.createElement('a');
+    a.href = '#index-nav';
+    a.className = 'back';
+    a.textContent = '↑ インデックスへ';
+    article.appendChild(a);
+  });
+</script>
+</body>
+</html>
